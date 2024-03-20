@@ -211,8 +211,8 @@ footer section {
   align-self: flex-end;
 }
 
-.productDetails {
-}
+/* .productDetails {
+} */
 
 .productDetails figure {
   min-width: 100px;
@@ -258,6 +258,80 @@ footer section {
 #basketWiev button {
   height: 20px;
 }
+
+ /* loading animation styling */
+ #animLoader {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #fe9635;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* #animLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000088;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+
+.loader{
+  position: absolute;
+  top: 48.5%;
+  left: 48.5%;
+  width: 30px;
+  height: 30px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #e9971a;
+  border-radius: 50%;
+  animation: spin 1.1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+*/
+
+
+
 @media only screen and (max-width: 600px) {
   footer {
     background-color: rgb(255, 106, 0);

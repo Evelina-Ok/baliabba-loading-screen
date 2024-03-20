@@ -3,7 +3,8 @@
 const productSection = document.getElementById('app');
 const navElement = document.getElementById('navigation')
 const basketIcon = document.getElementById('basketIcon')
-
+const loadContainer = document.getElementById('animLoader')
+ // create a variable and call the animation from html
 
 
 
@@ -14,6 +15,21 @@ let myProducts = null
 // page load
 InitApp()
 
+
+// build a function that build the loading screen:
+function buildLoadingScreen() {
+ 
+    // productSection.style.display = 'none';
+    // navElement.style.display = 'none';
+    loadContainer.style.display = 'block';
+}
+
+function removeLoadingScreen() {
+ 
+    // productSection.style.display = 'block';
+    // navElement.style.display = 'inline-block';
+    loadContainer.style.display = 'none';
+}
 
 
 /* Model code------------------------------------------------------------- */
@@ -32,6 +48,7 @@ function GetProductData() {
             //console.log(json);
             ProductsRecived(json)
         });
+
 }
 
 
@@ -92,7 +109,7 @@ function ReadLocalStorageData() {
 
 
 function InitApp() {
-
+    buildLoadingScreen()
     InitializeBasket()
     GetProductData()
     GetCategoryData()
@@ -133,6 +150,7 @@ function recivedProductsByCategory(productsByC) {
 
     CreateProductView(myProductArray)
 
+    removeLoadingScreen ()
 }
 
 
@@ -231,6 +249,8 @@ function CategoryRecived(CategoryData) {
 
 
     CreateNavBar(myNavigationData)
+
+    removeLoadingScreen ()
 }
 
 //----------------------------------------------------------------------
@@ -247,6 +267,8 @@ function ProductsRecived(productData) {
 
     CreateProductView(myFeaturedProducts)
     // CreateProductView(myProducts)
+
+    removeLoadingScreen()
 }
 
 //----------------------------------------------------------------------
@@ -255,13 +277,18 @@ function NavCallback(CategoryName) {
     //console.log(CategoryName);
     CloseMobileNav()
     // get data from API  bug API url og send videre
+
+    // TO DO: loading screen //******************
+    buildLoadingScreen()
+  
+    
     if (CategoryName == "All") {
         CreateProductView(myProducts)
     }
     else {
         let myCategoryURL = `https://dummyjson.com/products/category/${CategoryName}`
 
-        GetProductsByCategory(myCategoryURL)
+        GetProductsByCategory(myCategoryURL)        // this one needs loading screen
     }
 
 
@@ -301,6 +328,9 @@ function ProductCallback(myId) {
 //----------------------------------------------------------------------
 
 function LogoCallback() {
+    // TO DO: loading screen //******************
+    buildLoadingScreen()
+
     GetProductData()
 }
 
@@ -575,6 +605,8 @@ function CreateProductView(myCards) {
     myHTML += '</section>'
 
     productSection.innerHTML = myHTML
+
+    removeLoadingScreen ()
 }
 
 
@@ -605,3 +637,7 @@ function clearApp() {
 
 
 
+
+
+
+   
