@@ -18,14 +18,16 @@ InitApp()
 
 // build a function that build the loading screen:
 function buildLoadingScreen() {
- 
+//  while the sections of our featured products and navigation bar are loading, loading animation is showing
+
     // productSection.style.display = 'none';
     // navElement.style.display = 'none';
     loadContainer.style.display = 'block';
 }
 
 function removeLoadingScreen() {
- 
+ //  once featured products and navigation bar are loaded, loading animation is hidden
+
     // productSection.style.display = 'block';
     // navElement.style.display = 'inline-block';
     loadContainer.style.display = 'none';

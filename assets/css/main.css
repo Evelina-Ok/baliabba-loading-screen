@@ -270,7 +270,11 @@ footer section {
  
 }
 
-.loader {
+/* .loader {
+  position:absolute;
+  left: 37%;
+  top: 50%;
+  text-align: center;
   border: 10px solid #f3f3f3;
   border-radius: 50%;
   border-top: 10px solid #fe9635;
@@ -296,7 +300,7 @@ footer section {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 
 
